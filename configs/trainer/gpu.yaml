@@ -1,0 +1,9 @@
+defaults:
+  - default.yaml
+
+accelerator: gpu
+devices: 1
+
+min_epochs: 200 # prevents early stopping
+max_epochs: 200
+gradient_clip_val: 0.5

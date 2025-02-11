@@ -1,0 +1,39 @@
+_target_: src.datamodules.hisum_datamodule.SumDataModule
+data_dir: ${paths.data_dir}
+exp_type: ${exp_type}
+dataset_type: ${dataset_type}
+h5_filename: None
+try_num: 1
+split_id: 0
+batch_size: 128
+num_workers: 1
+prefetch_factor: 1
+pin_memory: True
+uboco_model_dir: ${paths.uboco_model_dir}
+uboco_hparams:
+  feature_dim: 1024
+  enc_hidden: 512
+  enc1_layers: 1
+  enc2_layers: 3
+  enc3_layers: 3
+
+tvsum_tsm_parser:
+  sim_size_ratio: 0.03
+  topk_percent: 0.0
+  rtp_thr1: 0.15
+  rtp_thr2: 0.15
+  bd_gap_margin: 5
+
+summe_tsm_parser:
+  sim_size_ratio: 0.05
+  topk_percent: 0.3
+  rtp_thr1: 0.2
+  rtp_thr2: 0.1
+  bd_gap_margin: 3
+
+mrhighlight_tsm_parser:
+  sim_size_ratio: 0.05
+  topk_percent: 0.3
+  rtp_thr1: 0.2
+  rtp_thr2: 0.1
+  bd_gap_margin: 3

@@ -1,0 +1,21 @@
+_target_: src.models.hisum_module.HiSumModule
+exp_type : ${exp_type}
+dataset_type : ${dataset_type}
+dataset_split : ${datamodule.split_id}
+optimizer:
+  _target_: torch.optim.AdamW
+  _partial_: true
+  lr: 5e-9 # summe 1e-7 tvsum 5e-7
+  weight_decay: 1e-3 # originally 1e-4
+
+net:
+  _target_: src.models.components.summarizer.HiSumNet
+  stage : [True, True, False]
+  depth : [1,1,1]
+  input_dim : 1024
+  num_heads : 8
+  mlp_ratio : 1
+
+histogram: False
+see_vis: True
+vis_dir: ${paths.output_dir}/vis
